@@ -1,0 +1,21 @@
+---
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+
+  build-test:
+    name: Container Test Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: docker-compose up --build
