@@ -12,8 +12,6 @@ services:
     ports:
       - 5432:5432
     container_name: postgres
-    env_file:
-      - secrets.env
     networks:
       - app_network
     restart: on-failure
